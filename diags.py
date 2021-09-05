@@ -1,4 +1,4 @@
-from mitmproxy.models import flow
+from mitmproxy import ctx
 from mitmproxy.models import HTTPResponse
 from netlib.http import Headers
 import cgi
@@ -143,7 +143,7 @@ XML_OK_RESPONSE = '''<?xml version="1.0" encoding="UTF-8"?>
 
 def request(context, flow):
     path = flow.request.path  
-    print 'Path is %s' % path
+    print('Path is %s' % path)
     if path == '/ios/TestConfiguration/1.2':
         respond(flow, XML_OK_RESPONSE)  
     elif path == '/MR3Server/ValidateTicket?ticket_number=123456':    
